@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Greetings</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #a7b1a7;
+      margin: 20px;
+      overflow: hidden; /* Hide overflow to prevent horizontal scrollbar */
+    }
+
+    h1, h2 {
+      color: #ffffff;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      position: relative; /* Position relative for absolute positioning of fireworks */
+    }
+
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffcc00; /* Firework color */
+      border-radius: 50%;
+      animation: explode 1s ease-out infinite; /* Firework animation */
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .image {
+      cursor: pointer;
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    #definitionModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 236, 236, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #e95757;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1></h1>
+  <h2><i>Merry Christmas and Happy New Year Malwine! .</i></h2>
+
+  <div class="gallery">
+    <!-- Your existing photos -->
+    <img class="image" src="moon.jpg" alt="Christmas Photo 1" onclick="showDefinition('This Symbolizes that even though you cannot be seen at day or sometimes can be only seen at night you are always there ')">
+    <img class="image" src="flower.jpg" alt="Christmas Photo 2" onclick="showDefinition('This flower was the one i sent on the Instagram i remember it because you hearted it ')">
+    <img class="image" src="white.jpg" alt="Christmas Photo 3" onclick="showDefinition('White flower symbolize like you with a pure heart and perfect and untainted')">
+    <img class="image" src="tree.jpg" alt="Christmas Photo 3" onclick="showDefinition('If Christmas was everyday people dont need to remove such a wonderful trees with decorations but season changes ')">
+    <img class="image" src="hally.jpg" alt="Christmas Photo 3" onclick="showDefinition('My dog Hally was my source of energy i was not recharge by sleep by his comfort sleeping beside me ')">
+    <img class="image" src="redtree.jpg" alt="Christmas Photo 3" onclick="showDefinition('Another tree i captured during my brothers birthday everytime i see those trees i cant wait to share it to you')">
+    <img class="image" src="globe2.jpg" alt="Christmas Photo 3" onclick="showDefinition('The Trademark of one of the biggest malls near in our area a day is not enough to explore wonderful brands and cool things but the Globe will welcome you to the mall')">
+    <img class="image" src="mall2.jpg" alt="Christmas Photo 3" onclick="showDefinition('Another  shot inside the mall every holiday and event in the philippines malls really put alot of effort to it ')">
+    <img class="image" src="gundam.jpg" alt="Christmas Photo 3" onclick="showDefinition('this red Robot is a gift given by my niece since we both liked Gundam he gave me one ')">
+
+    <!-- New image for mail -->
+    <img class="image" id="mailImage" src="mail.jpg" alt="Christmas Mail" onclick="showDefinition('Merry Christmas and Happy New Year Malwine times already have passed and 2024 is already coming there are a lot of great happenings in our life but our communication is the best part of it thank you for being patient with me and for not getting bored and i would like to apologize for sometimes my letters arent great and   i suddenly chat but i know there will be more better things will happen in 2024 new year same person but new adventure and new friends that we are going to meet i pray for guidance and success for you and your family.'
+    )">
+    
+    <!-- Fireworks -->
+    <div class="firework" style="top: 250px; left: 250px;"></div>
+    <div class="firework" style="top: 250px; right: 250px;"></div>
+    <div class="firework" style="bottom: 250px; left: 250px;"></div>
+    <!-- Add more fireworks as needed -->
+  </div>
+
+  <div id="definitionModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeDefinitionModal()">&times;</span>
+      <p id="definitionText"></p>
+    </div>
+  </div>
+
+  <script>
+    function showDefinition(message) {
+      var modal = document.getElementById('definitionModal');
+      var definitionText = document.getElementById('definitionText');
+      var mailImage = document.getElementById('mailImage');
+
+      // Set the definition text and update the mail image source
+      definitionText.textContent = message;
+      mailImage.src = "mail.jpg"; // Replace "mail_with_message.jpg" with the actual file name
+
+      // Display the modal
+      modal.style.display = 'flex';
+    }
+
+    function closeDefinitionModal() {
+      var modal = document.getElementById('definitionModal');
+      modal.style.display = 'none';
+    }
+
+    // Close the modal if the user clicks outside of it
+    window.onclick = function (event) {
+      var modal = document.getElementById('definitionModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
+
